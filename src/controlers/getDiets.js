@@ -3,7 +3,7 @@ const { API_KEY } = process.env;
 const { Diet } =require("../db");
 
 const getDiets = async () => {
-    allDiets = await Diet.findAll() //traigo todas las diets en mi DB 
+    const allDiets = await Diet.findAll() //traigo todas las diets en mi DB 
     return allDiets;
 };
 
@@ -27,7 +27,8 @@ const setDiets = async () => {
                 where: {name:diet}
             })
         });
-        dietsObj = await Diet.findAll();
+        const dietsObj = await Diet.findAll();
+        console.log(dietsObj);
         return dietsObj;
     } catch (error) {
         console.log(error.message);
